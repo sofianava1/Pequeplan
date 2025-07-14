@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Configuración básica del documento -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plantilla Visible - Belluccia 3</title>
+
+    <!-- Tipografía desde Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" rel="stylesheet">
+ <!-- Tipografías necesarias -->
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Heebo:wght@700&family=Inter:wght@700&family=Nunito:wght@700&display=swap" rel="stylesheet">
+
+
+
+    <!-- Framework CSS de Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="styles.css-2.css">
+
+    <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const navLinks = document.querySelectorAll(".nav-link");
+    const secciones = {
+      hero: document.getElementById("hero"),
+      beneficios: document.getElementById("beneficios"),
+      quienes: document.getElementById("quienes"),
+      comunidad: document.getElementById("comunidad"),
+      experiencias: document.getElementById("experiencias"),
+      faq: document.getElementById("faq"),
+      kits: document.getElementById("kits"),
+      contacto: document.getElementById("contacto")
+    };
+
+    function getOffsetTop(el) {
+      let y = 0;
+      while (el) {
+        y += el.offsetTop;
+        el = el.offsetParent;
+      }
+      return y;
+    }
+
+    function onScroll() {
+      const scrollPos = window.scrollY + 150; // ajustá según el offset de tu nav
+      let current = null;
+
+      for (let key in secciones) {
+        const section = secciones[key];
+        if (scrollPos >= getOffsetTop(section)) {
+          current = key;
+        }
+      }
+
+      navLinks.forEach(link => {
+        const href = link.getAttribute("href").substring(1);
+        if (href === current) {
+          link.classList.add("active");
+        } else {
+          link.classList.remove("active");
+        }
+      });
+    }
+
+    window.addEventListener("scroll", onScroll);
+    onScroll();
+  });
+</script>
+
+</head>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<body>
+
+<!-- NAVBAR: Menú de navegación fijo superior -->
+<nav class="navbar fixed-top custom-navbar">
+  <div class="container justify-content-between align-items-center">
+
+    <!-- LOGO -->
+    <a class="navbar-brand" href="#hero">Pequeplan</a>
+
+    <!-- BOTÓN HAMBURGUESA -->
+    <button class="navbar-toggler d-lg-none" type="button"
+      data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- LINKS DESKTOP -->
+    <div class="d-none d-lg-flex gap-3">
+       <a href="#hero" class="nav-link">INICIO</a>
+<a href="#beneficios" class="nav-link">¿QUÉ INCLUYE?</a>
+<a href="#quienes" class="nav-link">¿POR QUÉ ELEGIRLO?</a>
+<a href="#comunidad" class="nav-link">COMUNIDAD</a>
+<a href="#experiencias" class="nav-link">EXPERIENCIAS</a>
+<a href="#faq" class="nav-link">FAQ</a>
+<a href="#kits" class="nav-link">PRODUCTOS</a>
+<a href="#contacto" class="nav-link">CONTACTO</a>
+      </div>
+
+    <!-- MENÚ OFFCANVAS -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasMenu">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title text-white">Pequeplan</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+      </div>
+      <div class="offcanvas-body d-flex flex-column">
+       <a href="#hero" class="nav-link">INICIO</a>
+<a href="#beneficios" class="nav-link">¿QUÉ INCLUYE?</a>
+<a href="#quienes" class="nav-link">¿POR QUÉ ELEGIRLO?</a>
+<a href="#comunidad" class="nav-link">COMUNIDAD</a>
+<a href="#experiencias" class="nav-link">EXPERIENCIAS</a>
+<a href="#faq" class="nav-link">FAQ</a>
+<a href="#kits" class="nav-link">PRODUCTOS</a>
+<a href="#contacto" class="nav-link">CONTACTO</a>
+      </div>
+    </div>
+
+    
+  </div>
+</nav>
+<!-- /NAVBAR -->
+
+<!-- HERO: Sección de portada con llamado a la acción -->
+<div id="hero" style="position: relative; top: -100px;"></div>
+
+<section class="hero-section hero-huerta section-spacing d-flex align-items-center"
+
+  style="min-height: 100vh; padding-top: 0px; background-image: url('img/hero-detalle.png'); background-size: cover; background-position: center; background-repeat: no-repeat; width: 100%;">
+  <div class="container">
+    <div class="row align-items-center">
+
+      <!-- Texto principal -->
+      <div class="col-lg-6">
+        <h1 class="hero-title">
+          <span style="color: #0F6DBF;">KIT</span> <span class="pink">PEQUE HUERTA</span>
+        </h1>
+
+        <p class="hero-subtext" style="line-height: 1.3; color: #616161;">
+          Mediante actividades simples y didácticas, los chicos<br>
+          aprenden sobre el cuidado de las plantas, el ciclo de la<br>
+          vida y la importancia de los alimentos.
+        </p>
+
+        <!-- PRECIO -->
+        <p class="precio-hero" style="font-family: 'Fredoka', sans-serif; font-size: 2.2rem; font-weight: 600; color: #0F6DBF; margin: 25px 0 10px 0;">
+          $35.000 <small style="font-size: 1rem; font-weight: 400; color: #0F6DBF;">x mes</small>
+        </p>
+
+        <!-- LISTA DE BENEFICIOS -->
+        <ul style="color: #616161; font-size: 1.25rem; font-family: 'Fredoka', sans-serif; font-weight: 400; line-height: 1.3; padding-left: 1.2rem; margin-bottom: 2rem;">
+          <li>Cultivá valores desde casa</li>
+          <li>Actividades sin pantallas</li>
+          <li>Conexión con la naturaleza</li>
+          <li>Tiempo real en familia</li>
+        </ul>
+
+        <!-- BOTÓN CTA CON MÁS SEPARACIÓN -->
+        <div class="d-flex gap-3" style="margin-top: 3.2rem;">
+          <a href="#" class="btn btn-custom">SUSCRIBITE</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- /HERO -->
+
+<!-- SERVICES: Servicios o funcionalidades -->
+ <div id="beneficios" style="position: relative; top: -100px;"></div>
+ 
+<section class="beneficios-section">
+  <div class="container text-center">
+    <h2 class="titulo-beneficios">¿QUÉ INCLUYE EL KIT?</h2>
+    <div class="row justify-content-center">
+      
+      <!-- Bloque 1 -->
+      <div class="col-md-4 mb-5">
+        <img src="img/materiales.png" alt="Icono Cero Pantallas" class="beneficio-icono mb-3">
+        <h3 class="subtitulo-beneficio">MATERIALES</h3>
+        <p class="texto-beneficio">
+          Semillas de estación y maceta biodegradable
+        </p>
+      </div>
+
+      <!-- Bloque 2 -->
+      <div class="col-md-4 mb-5">
+        <img src="img/herramientas.png" alt="Icono Tiempo de Calidad" class="beneficio-icono mb-3">
+        <h3 class="subtitulo-beneficio">HERRAMIENTAS</h3>
+        <p class="texto-beneficio">
+          Pulverizador y palas de distintos tamaños
+        </p>
+      </div>
+
+      <!-- Bloque 3 -->
+      <div class="col-md-4 mb-5">
+        <img src="img/libroguia.png" alt="Icono Educar Jugando" class="beneficio-icono mb-3">
+        <h3 class="subtitulo-beneficio">LIBRO GUÍA</h3>
+        <p class="texto-beneficio">
+          Cuaderno ilustrado con guía de los proyectos
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- /SERVICES -->
+
+<!-- POR QUÉ ELEGIR ESTE KIT -->
+<div id="quienes" style="position: relative; top: -100px;"></div>
+
+ <section class="quienes-somos-section">
+  <div class="container">
+    <div class="row align-items-center">
+      <!-- Imagen a la izquierda -->
+    <div class="col-md-6 d-flex align-items-center justify-content-start">
+  <img src="img/elegirlo.png" alt="Nosotros" class="img-quienes">
+</div>
+
+      <!-- Texto a la derecha -->
+      <div class="col-md-6">
+        <h2 class="quienes-titulo">POR QUÉ ELEGIRLO</h2>
+        <p class="quienes-texto">
+          Porque es una experiencia para crecer juntos. Este kit los invita a conectar con la naturaleza, a entender de dónde vienen los alimentos y a desarrollar el amor por el planeta. Sin pantallas y sin apuros,
+solo ellos, sus manos y la tierra.
+        </p>
+        <p class="quienes-texto">
+          Cada semilla que siembran es una oportunidad para crecer en paciencia, constancia y responsabilidad, la huerta los acompaña durante semanas. 
+        </p>
+       <a href="#" class="btn btn-saber-mas">SUSCRIBITE</a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- POR QUÉ ELEGIR ESTE KIT -->
+
+<!-- /COMUNIDAD PEQUE HUERTA -->
+ <div id="comunidad" style="position: relative; top: -100px;"></div>
+
+<section class="profesionales container">
+  <h2 class="titulo-profesionales">¡COMUNIDAD EN ACCIÓN!</h2>
+
+  <!-- FILA 1 -->
+  <div class="row justify-content-center gx-4 gy-4">
+    <div class="col-md-4">
+      <div class="card-profesional">
+        <img src="img/comunidad-1.png">
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card-profesional">
+        <img src="img/comunidad-3.png">
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card-profesional">
+        <img src="img/comunidad-2.png">
+      </div>
+    </div>
+  </div>
+
+  <!-- FILA 2 -->
+  <div class="row justify-content-center gx-4 gy-4 mt-4">
+    <div class="col-md-4">
+      <div class="card-profesional">
+        <img src="img/comunidad-6.png">
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card-profesional">
+        <img src="img/comunidad-4.png">
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card-profesional">
+        <img src="img/comunidad-5.png">
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /COMUNIDAD PEQUE HUERTA -->
+
+<!-- EXPERIENCIAS IMPERDIBLES -->
+ <div id="experiencias" style="position: relative; top: -100px;"></div>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carrusel Experiencias</title>
+
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka&family=Heebo:wght@700&display=swap" rel="stylesheet" />
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #fff3ec;
+      font-family: 'Fredoka', sans-serif;
+    }
+
+    .experiencias-section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .titulo-experiencias {
+      font-family: 'Heebo', sans-serif;
+      font-size: 32px;
+      margin-bottom: 50px;
+      color: #0066cc;
+    }
+
+    .swiper {
+  width: 100vw;               /* ocupa todo el ancho de la ventana */
+  max-width: none !important; /* sin límite de ancho */
+    padding: 0 10vw 40px 10vw;  /* espacio interno a los costados y abajo */
+  box-sizing: border-box;
+}
+
+
+    .swiper-slide {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      opacity: 0.4;
+      transform: scale(0.9);
+      transition: all 0.4s ease;
+    }
+
+    .swiper-slide-active {
+      opacity: 1 !important;
+      transform: scale(1) !important;
+    }
+
+    .card-experiencia img {
+      width: 210px;
+      height: auto;
+      margin-bottom: 20px;
+      display: block;
+      filter: none !important;
+    }
+
+    .card-experiencia h3 {
+      font-family: 'Heebo', sans-serif;
+      font-size: 20px;
+      color: #0066cc;
+      margin-bottom: 10px;
+    }
+
+    .card-experiencia p {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 16px;
+      color: #333;
+      padding: 0 20px;
+      max-width: 400px;
+      margin: auto;
+    }
+
+    .swiper-pagination-bullet {
+      background-color: #0066cc;
+      opacity: 0.3;
+    }
+
+    .swiper-pagination-bullet-active {
+      opacity: 1;
+    }
+    
+  </style>
+</head>
+<body>
+
+  <section class="experiencias-section">
+    <h2 class="titulo-experiencias">EXPERIENCIAS IMPERDIBLES</h2>
+
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+
+        <!-- Slide 1 -->
+        <div class="swiper-slide">
+          <div class="card-experiencia">
+            <img src="img/plantardesdecero.png" alt="Plantar desde cero" />
+            <h3>PLANTAR DESDE CERO</h3>
+            <p>Así los chicos aprenden todos los pasos para sembrar y ver crecer sus cultivos.</p>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="swiper-slide">
+          <div class="card-experiencia">
+            <img src="img/manosenlatierra.png" alt="Manos en la tierra" />
+            <h3>MANOS EN LA TIERRA</h3>
+            <p>Actividades sensoriales y prácticas para conectar con la naturaleza.</p>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="swiper-slide">
+          <div class="card-experiencia">
+            <img src="img/cosechaconsentido.png" alt="Cosecha con sentido" />
+            <h3>COSECHA CON SENTIDO</h3>
+            <p>Los niños ven de dónde vienen los alimentos y valoran el cuidado del planeta.</p>
+          </div>
+        </div>
+
+        <!-- DUPLICADOS para que funcione el loop -->
+        <div class="swiper-slide">
+          <div class="card-experiencia">
+            <img src="img/plantardesdecero.png" alt="Plantar desde cero" />
+            <h3>PLANTAR DESDE CERO</h3>
+            <p>Así los chicos aprenden todos los pasos para sembrar y ver crecer sus cultivos.</p>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="card-experiencia">
+            <img src="img/manosenlatierra.png" alt="Manos en la tierra" />
+            <h3>MANOS EN LA TIERRA</h3>
+            <p>Actividades sensoriales y prácticas para conectar con la naturaleza.</p>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="card-experiencia">
+            <img src="img/cosechaconsentido.png" alt="Cosecha con sentido" />
+            <h3>COSECHA CON SENTIDO</h3>
+            <p>Los niños ven de dónde vienen los alimentos y valoran el cuidado del planeta.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Pagination -->
+     <div class="custom-pagination">
+  <span class="bullet"></span>
+  <span class="bullet"></span>
+  <span class="bullet"></span>
+</div>
+
+    </div>
+  </section>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <script>
+  const swiper = new Swiper('.mySwiper', {
+    slidesPerView: 3,
+    spaceBetween: 60,
+    centeredSlides: true,
+    loop: true,
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
+    },
+    breakpoints: {
+      0: {
+        slidesPerView: 1,
+        centeredSlides: true,
+      },
+      768: {
+        slidesPerView: 3,
+        centeredSlides: true,
+      }
+    },
+    on: {
+      slideChange: function () {
+        const bullets = document.querySelectorAll('.custom-pagination .bullet');
+        const realIndex = this.realIndex % 3;
+        bullets.forEach((b, i) => {
+          b.classList.toggle('active', i === realIndex);
+        });
+      }
+    }
+  });
+
+  // Activar bullet inicial
+  document.querySelectorAll('.custom-pagination .bullet')[0].classList.add('active');
+</script>
+</body>
+</html>
+<!-- EXPERIENCIAS IMPREDIBLES -->
+
+ <!-- FAQS: Preguntas frecuentes -->
+  <div id="faq" style="position: relative; top: -100px;"></div>
+
+<section class="faq">
+  <h2 class="faq-title">PREGUNTAS FRECUENTES</h2>
+  <div class="faq-container">
+    <!-- COLUMNA IZQUIERDA -->
+    <div class="faq-column">
+      <div class="faq-item">
+        <div class="faq-question">
+          <span class="question-text">¿A qué edad están dirigidos los kits?</span>
+          <span class="arrow">›</span>
+        </div>
+        <div class="faq-answer">Los kits están pensados para niños y niñas de entre 3 y 8 años, siempre deben contar con el acompañamiento de un adulto.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <span class="question-text">¿Qué pasa si pierdo alguna pieza?</span>
+          <span class="arrow">›</span>
+        </div>
+        <div class="faq-answer">Podés comunicarte con nosotros. Si está disponible, te enviaremos la pieza faltante sin cargo adicional.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <span class="question-text">¿Cuánto tarda en llegar la caja?</span>
+          <span class="arrow">›</span>
+        </div>
+        <div class="faq-answer">Dependiendo de tu ubicación, el kit llega entre 3 y 7 días hábiles desde la confirmación del pago.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <span class="question-text">¿Qué pasa si no estoy en el domicilio?</span>
+          <span class="arrow">›</span>
+        </div>
+        <div class="faq-answer">No te preocupes, si el correo no puede entregarlo, dejará un aviso.</div>
+      </div>
+    </div>
+
+    <!-- COLUMNA DERECHA -->
+    <div class="faq-column">
+      <div class="faq-item">
+        <div class="faq-question">
+          <span class="question-text">¿Puedo regalar un kit a otra familia?</span>
+          <span class="arrow">›</span>
+        </div>
+        <div class="faq-answer">¡Sí! En el proceso de compra podés elegir la opción de regalo y completar los datos de la persona que lo recibirá.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <span class="question-text">¿Hay descuento por más de un kit?</span>
+          <span class="arrow">›</span>
+        </div>
+        <div class="faq-answer">Obvio, tenemos promociones por cantidad. Consultanos por WhatsApp o redes sociales para más info.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <span class="question-text">¿Puedo cancelar cuando quiera?</span>
+          <span class="arrow">›</span>
+        </div>
+        <div class="faq-answer">Sí, podés cancelar en cualquier momento que decidas. Solo te pedimos hacerlo antes del próximo envío programado.</div>
+      </div>
+       <div class="faq-item">
+        <div class="faq-question">
+          <span class="question-text">¿Los kits incluyen las instrucciones?</span>
+          <span class="arrow">›</span>
+        </div>
+        <div class="faq-answer">Sí, cada kit viene con una guía clara y sencilla para acompañar el proceso sin complicaciones.</div>
+      </div>
+    </div>
+    </div>
+  </div>
+</section>
+<script>
+  document.querySelectorAll('.faq-question').forEach((question) => {
+    question.addEventListener('click', () => {
+      const item = question.parentElement;
+      item.classList.toggle('active');
+    });
+  });
+</script>
+ <!-- FAQS: Preguntas frecuentes -->
+
+<!-- PLANES DE SUSCRIPCIÓN: Sección con 3 opciones destacadas -->
+ <div id="kits" style="position: relative; top: -100px;"></div>
+
+<section class="section-kits text-center">
+  <div class="container">
+
+  <h2 class="h2-custom">¡OTROS KITS PARA ELEGIR!</h2>
+  
+ <div class="row mt-5 justify-content-center">
+
+    
+    <!-- Card: Peque Chef -->
+    <div class="col-md-4 mb-4">
+      <div class="card p-4 h-100">
+        <!-- Título arriba -->
+        <h5 class="text-uppercase kit-title">PEQUE CHEF</h5>
+
+        <!-- Imagen abajo del título -->
+        <img src="img/kitcocina.png" class="img-fluid img-rounded mb-3" alt="Peque Chef">
+
+
+        <!-- Lista de beneficios -->
+        <ul class="list-unstyled text-center mx-auto" style="max-width: 250px;">
+          <li>5 proyectos de cocina</li>
+          <li>Muchas recetas riquísimas</li>
+          <li>Ingredientes secos</li>
+          <li>Utensilios y moldes</li>
+        </ul>
+
+        <!-- Precio ABAJO -->
+        <p class="display-6">$15.000 <small>/ mes</small></p>
+
+        <!-- Botón CTA -->
+        <a href="#" class="btn mt-3">COMPRAR</a>
+      </div>
+    </div>
+
+    <!-- Card: Peque Arte -->
+    <div class="col-md-4 mb-4">
+      <div class="card p-4 h-100">
+        <!-- Título arriba -->
+        <h5 class="text-uppercase kit-title">PEQUE ARTE</h5>
+
+        <!-- Imagen abajo del título -->
+        <img src="img/kitarte.png" class="img-fluid img-rounded mb-3" alt="Peque Arte">
+
+
+        <!-- Lista de beneficios -->
+        <ul class="list-unstyled text-center mx-auto" style="max-width: 250px;">
+          <li>15 proyectos creativos</li>
+          <li>Actividades divertidas</li>
+          <li>Materiales de arte</li>
+          <li>Rompecabezas ilustrado</li>
+        </ul>
+
+        <!-- Precio ABAJO -->
+        <p class="display-6">$35.000 <small>/ mes</small></p>
+
+        <!-- Botón CTA -->
+        <a href="#" class="btn mt-3">COMPRAR</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+<!-- PLANES DE SUSCRIPCIÓN: Sección con 3 opciones destacadas -->
+
+<!-- DATOS DE CONTACTO -->
+ <div id="contacto" style="position: relative; top: -100px;"></div>
+
+<section class="contacto">
+  <h2 class="titulo-contacto">CONTACTANOS</h2>
+  <div class="contacto-contenido">
+    <div class="contacto-datos">
+      <div class="card">
+        <img src="img/icono-direccion.png" alt="Dirección" />
+        <h3>DIRECCIÓN</h3>
+        <p>Av. Libertador 11240<br />Buenos Aires, Argentina</p>
+      </div>
+      <div class="card">
+        <img src="img/icono-email.png" alt="Email" />
+        <h3>EMAIL</h3>
+        <p>pequeplan@kits.com<br />pequeplan@consultas.com</p>
+      </div>
+      <div class="card">
+        <img src="img/icono-horarios.png" alt="Teléfono" /> 
+        <h3>TELÉFONO</h3>
+        <p>(011) 4321-6789<br />+54 9 11 6123-4567</p>
+      </div>
+      <div class="card">
+        <img src="img/icono-telefono.png" alt="Horarios" />
+        <h3>HORARIOS</h3>
+        <p>Lunes – Viernes<br />9:00 – 18:00 hs</p>
+      </div>
+    </div>
+    <div class="contacto-formulario">
+      <form>
+        <div class="doble-input">
+          <input type="text" placeholder="Nombre" required />
+          <input type="email" placeholder="Email" required />
+        </div>
+        <input type="text" placeholder="Asunto" required />
+        <textarea placeholder="Mensaje" required></textarea>
+        <button type="submit" class="hero-btn">ENVIAR MENSAJE</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- DATOS DE CONTACTO -->
+
+<!-- SECCIÓN FOOTER -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-col marca">
+      <h3>Pequeplan</h3>
+      <p>Av. Libertador 11240<br>Buenos Aires, Argentina</p>
+      <p><strong>Teléfono:</strong> +54 9 11 6123-4567 / (011) 4321-6789</p>
+      <p><strong>Email:</strong> pequeplan@kits.com / pequeplan@consultas.com</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>LINKS ÚTILES</h4>
+      <ul>
+        <ul>
+  <li><a href="#hero">Inicio</a></li>
+  <li><a href="#beneficios">¿Qué incluye?</a></li>
+  <li><a href="#quienes">¿Por qué elegirlo?</a></li>
+  <li><a href="#comunidad">Comunidad</a></li>
+  <li><a href="#experiencias">Experiencias</a></li>
+  <li><a href="#faq">FAQ</a></li>
+  <li><a href="#kits">Productos</a></li>
+  <li><a href="#contacto">Contacto</a></li>
+</ul>
+
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>SERVICIOS</h4>
+      <ul>
+        <li><a href="#kits">Kits quincenales</a></li>
+        <li><a href="#pequeswap">Pequeswap</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>SEGUINOS</h4>
+      <div class="redes">
+        <a href="#"><img src="img/twitter.png" alt="Twitter"></a>
+        <a href="#"><img src="img/facebook.png" alt="Facebook"></a>
+        <a href="#"><img src="img/instagram.png" alt="Instagram"></a>
+        <a href="#"><img src="img/linkedin.png" alt="LinkedIn"></a>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- FOOTER: Pie de página -->
+<footer class="footer-copy text-center py-4">
+  <div class="container">
+    <p class="p-custom">
+      © Copyright <span class="medium">Pequeplan</span> All Rights Reserved.<br class="d-sm-none">
+      Designed by <span class="medium">Sofia Trinidad Nava</span>
+    </p>
+  </div>
+</footer>
+<!-- SECCIÓN SUSCRIPCIÓN Y FOOTER -->
+
+
+
+
+
