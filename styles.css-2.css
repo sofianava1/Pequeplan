@@ -2975,3 +2975,312 @@ row-gap: 20px;
   color: white !important;
 }
 
+body {
+  overflow-x: hidden;
+}
+
+/* === BOTONES UNIVERSALES === */
+a.btn,
+button.btn,
+input.btn,
+.btn,
+.btn-custom,
+.btn-saber-mas,
+.hero-btn {
+  background-color: #FFA1AF !important;
+  color: #fff !important;
+  border: none !important;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none !important;
+  box-shadow: none !important;
+  transition: all 0.2s ease-in-out;
+}
+
+/* === ESTADOS INTERACTIVOS === */
+a.btn:hover,
+button.btn:hover,
+input.btn:hover,
+.btn:hover,
+.btn-custom:hover,
+.btn-saber-mas:hover,
+.hero-btn:hover,
+a.btn:focus,
+button.btn:focus,
+input.btn:focus,
+.btn:focus,
+.btn-custom:focus,
+.btn-saber-mas:focus,
+.hero-btn:focus,
+a.btn:active,
+button.btn:active,
+input.btn:active,
+.btn:active,
+.btn-custom:active,
+.btn-saber-mas:active,
+.hero-btn:active {
+  background-color: #FFA1AF !important;
+  color: #fff !important;
+  opacity: 0.85 !important;
+  transform: scale(0.98);
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/* === CORREGIR BOTONES EN TARJETAS DE PLANES (ej. COMPRAR) === */
+.section-kits .btn {
+  background-color: #FFA1AF !important;
+  color: #fff !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* === PREVENIR SOMBRAS DE BOOTSTRAP === */
+button:focus,
+.btn:focus,
+.btn:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* BOTÓN COMPRAR - SOLO DENTRO DE .section-kits */
+.section-kits .card a.btn {
+  background-color: #FFA1AF !important;
+  color: white !important;
+  border: none !important;
+  text-decoration: none !important;
+  font-weight: 600;
+  box-shadow: none !important;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Hover y clic */
+.section-kits .card a.btn:hover,
+.section-kits .card a.btn:focus,
+.section-kits .card a.btn:active {
+  background-color: #FFA1AF !important;
+  color: white !important;
+  opacity: 0.85;
+  transform: scale(0.97);
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+@media (max-width: 767px) {
+  /* Cambiar imagen solo para el hero con bg-hero.jpg */
+  .hero-section[style*="bg-hero.jpg"] {
+    background-image: url('img/hero-mobile.png') !important;
+  }
+
+  /* Subir texto y botón solo en este hero */
+  .hero-section[style*="bg-hero.jpg"] .col-lg-6 {
+    margin-top: -60px !important;
+  }
+
+  /* Opcional: reducir tamaño del texto */
+  .hero-section[style*="bg-hero.jpg"] .hero-title {
+    font-size: 1.8rem;
+    line-height: 1.2;
+  }
+
+  .hero-section[style*="bg-hero.jpg"] .hero-subtext {
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+}
+
+@media (max-width: 767px) {
+  /* Subir TODO el bloque de texto + botón mucho más */
+  .hero-section[style*="bg-hero.jpg"] .container .row {
+    margin-top: -260px; /* Antes era -100px, ahora MUCHO más arriba */
+  }
+
+  /* Ajuste fino en los textos */
+  .hero-section[style*="bg-hero.jpg"] .hero-title {
+    font-size: 1.8rem;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-section[style*="bg-hero.jpg"] .hero-subtext {
+    font-size: 1rem;
+    line-height: 1.4;
+    margin-top: 0.5rem;
+  }
+
+  /* Separación más suave del botón */
+  .hero-section[style*="bg-hero.jpg"] .d-flex.mt-5 {
+    margin-top: 1.2rem !important;
+  }
+}
+
+@media (max-width: 767px) {
+  /* Hero específico con bg-hero.jpg */
+  .hero-section[style*="bg-hero.jpg"] .hero-title {
+    font-size: 2.5rem !important;
+    line-height: 1.3 !important;
+  }
+
+  .hero-section[style*="bg-hero.jpg"] .hero-subtext {
+    font-size: 1.2rem !important;
+    line-height: 1.5 !important;
+  }
+}
+
+.profesionales .card-profesional {
+  transition: none !important;
+  transform: none !important;
+}
+
+.profesionales .card-profesional:hover {
+  transform: none !important;
+  scale: 1 !important;
+}
+
+.profesionales .card-profesional:hover {
+  transform: none !important;
+  box-shadow: none !important;
+  scale: 1 !important;
+}
+
+.profesionales .card-profesional {
+  transition: none !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+.porque-elegirnos-section {
+  position: relative;
+  z-index: 1;
+  padding: 120px 0 80px; /* Ajustá esto si querés más espacio interno */
+  overflow: hidden;
+}
+
+.porque-elegirnos-section::before {
+  content: "";
+  position: absolute;
+  top: -80px;            /* SUBE el fondo — Más negativo = más arriba */
+  left: 0;
+  width: 100%;
+  height: calc(100% + 300px); /* Alto del fondo. Más = más visible abajo */
+  background-image: url("img/fondo-elegirnos.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top;
+  z-index: -1;
+  pointer-events: none;   /* Esto te deja hacer clic en los elementos de encima sin problemas */
+}
+
+.lista-beneficios {
+  margin-top: -15px; /* Ajustá el valor según cuánto quieras subir */
+}
+
+.porque-elegirnos-section .row.align-items-center {
+  margin-top: -35px; /* Aumentá el número para subir más */
+}
+
+section.profesionales {
+  position: relative;
+  top: -25px;
+  z-index: 1;
+}
+
+section.testimonios {
+  position: relative;
+  top: -30px; /* Ajustá este valor según cuánto quieras subir */
+  z-index: 1;
+}
+
+section.profesionales {
+  position: relative;
+  z-index: 1;
+}
+
+section.profesionales::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: 110%;
+  background-image: url('img/fondo-elegirnos.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+  z-index: -1;
+}
+
+.experiencias-section {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  transform: translateY(-30px) !important;
+}
+
+.faq {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  transform: translateY(-30px) !important;
+}
+
+/* Estado por defecto (cerrado) */
+.faq-question .arrow {
+  color: #FFA1AF;
+  transition: color 0.3s ease;
+}
+
+/* Estado activo (cuando el texto está desplegado) */
+.faq-item.active .faq-question .arrow {
+  color: #0F6DBF;
+}
+
+.quienes-somos-section {
+  transform: translateY(-60px) !important;
+}
+
+section.profesionales.container {
+  transform: translateY(-60px) !important;
+}
+
+.experiencias-section {
+  position: relative !important;
+  top: -40px !important;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.faq {
+  position: relative !important;
+  top: -40px !important; /* Ajustá este valor según lo alto que quieras subirla */
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+@media (max-width: 576px) {
+  .footer-copy {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    text-align: center !important;
+  }
+
+  .footer-copy .container {
+    padding: 0 !important;
+    margin: 0 auto !important;
+    max-width: 100% !important;
+  }
+
+  .footer-copy .p-custom {
+    margin: 0 auto !important;
+    text-align: center !important;
+    display: inline-block;
+  }
+}
+
+#equipo {
+  position: relative !important;
+  display: block !important;
+  height: 80px !important;
+  margin-top: 60px !important;
+  content: "";
+}
+
